@@ -2,8 +2,10 @@ package com.example.firstworkshop.repository;
 
 
 import entity.Users;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends Repository <Users, Integer> {
+
+public interface UserRepository extends JpaRepository<Users, Integer> {
 
 }
+

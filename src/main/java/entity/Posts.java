@@ -5,9 +5,10 @@ import lombok.Data;
 import java.sql.Timestamp;
 @Data
 public class Posts {
-    private Integer id;
+    private Integer postId;
     private String title;
     private  String body;
     private Integer userId;
-    private Timestamp create_data;
+    private Timestamp postData;
+    private boolean delete;
 }
