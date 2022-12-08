@@ -18,7 +18,8 @@ public class PostService {
         return postRepository.findAll();
     }
     public Posts getPostById(int id){
-        return postRepository.findById(id).orElseThrow(() -> new NotFoundException ("Post not found"));
+        return postRepository.findById(id).orElseThrow(
+                () -> new NotFoundException ("Post not found"));
     }
     public Posts add(Posts posts){
         posts.setPostId(null);

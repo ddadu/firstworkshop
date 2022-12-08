@@ -1,6 +1,8 @@
 package com.example.firstworkshop.controller;
 
+import com.example.firstworkshop.service.PostService;
 import com.example.firstworkshop.service.UserService;
+import entity.Posts;
 import entity.Users;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +14,11 @@ import java.util.List;
 @RequestMapping ("/users")
 public class UserController {
     private final UserService userService;
+    private final PostService postService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, PostService postService) {
         this.userService = userService;
+        this.postService = postService;
     }
 
     @GetMapping("/users")
@@ -40,7 +44,8 @@ public class UserController {
         userService.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-
-
+    @GetMapping("/{id}/posts")
+    public List<Posts>getUserPosts(@PathVariable int id){
+        return postService.getUserId(id);
+    }
 }
